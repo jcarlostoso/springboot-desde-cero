@@ -1,0 +1,54 @@
+# Compilados de Java
+*.class
+
+# Logs
+*.log
+
+# Archivos de configuración de entorno
+.env
+
+# Directorios de compilación
+/target/
+/out/
+
+# Archivos generados por Maven
+/logs
+!.mvn/wrapper/maven-wrapper.jar
+**/mvnw
+**/mvnw.cmd
+
+# Archivos generados por IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Archivos temporales
+*.tmp
+*.bak
+*.swp
+
+# Configuración de usuario de IntelliJ
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/dictionaries
+.idea/uiDesigner.xml
+.idea/**/dataSources/
+.idea/**/dataSources.ids
+.idea/**/dataSources.local.xml
+.idea/**/sqlDataSources.xml
+.idea/**/dynamic.xml
+.idea/**/uiDesigner.xml
+.idea/**/gradle.xml
+.idea/caches
+.idea/libraries
+
+# Directorios de pruebas
+/test-output/
+
+# Archivos de Docker (si usas Docker pero no quieres subir los build locales)
+/docker-data/
