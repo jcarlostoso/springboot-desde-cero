@@ -7,8 +7,9 @@ spring:
     config:
       server:
         git:
-          default-label: main
-          uri:
+          default-label: config-service
+          uri: https://github.com/jcarlostoso/springboot-desde-cero
+          search-paths: config-data
 
 
 
