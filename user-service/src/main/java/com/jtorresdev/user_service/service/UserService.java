@@ -43,12 +43,22 @@ public class UserService {
     }
 
     public List<Car> getCars(int userId){
+        /*
+        //Como se implementa eureka ya no se usa la url, con el "name" debe funcionar
+        y en config/RestTempleteConfig.java agregar notacion  @LoadBalanced
         List<Car> cars = restTemplate.getForObject("http://localhost:8002/car/byuser/"+userId,List.class);
+        */
+        List<Car> cars = restTemplate.getForObject("http://car-service/car/byuser/"+userId,List.class);
         return cars;
     }
 
     public List<Bike>getBike(int bikeId){
-        List<Bike> bikes = restTemplate.getForObject("http://localhost:8003/bike/byuser/"+bikeId,List.class);
+                /*
+        //Como se implementa eureka ya no se usa la url, con el "name" debe funcionar
+         List<Bike> bikes = restTemplate.getForObject("http://localhost:8003/bike/byuser/"+bikeId,List.class);
+         y en config/RestTempleteConfig.java agregar notacion  @LoadBalanced
+        */
+        List<Bike> bikes = restTemplate.getForObject("http://bike-service/bike/byuser/"+bikeId,List.class);
         return bikes;
     }
 
