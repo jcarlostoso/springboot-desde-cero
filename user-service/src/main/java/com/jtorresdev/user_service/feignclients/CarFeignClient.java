@@ -6,8 +6,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+/*
+//Como se implementa eureka ya no se usa la url, con el "name" debe funcionar
 @FeignClient(name = "car-service", url = "http://localhost:8002/car")
+*/
+@FeignClient(name = "car-service")
 
 public interface CarFeignClient {
 
