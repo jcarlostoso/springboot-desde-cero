@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import java.util.List;
 /*
 //Como se implementa eureka ya no se usa la url, con el "name" debe funcionar
-@FeignClient(name = "bike-server", url = "http://localhost:8003/bike")
+@FeignClient(name = "bike-service", url = "http://localhost:8003/bike")
 */
-@FeignClient(name = "bike-server")
+@FeignClient(name = "bike-service/bike")
 public interface BikeFeignClient {
     @PostMapping()
     Bike save(@RequestBody Bike bike);

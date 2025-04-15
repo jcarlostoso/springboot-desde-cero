@@ -10,7 +10,7 @@ import java.util.List;
 //Como se implementa eureka ya no se usa la url, con el "name" debe funcionar
 @FeignClient(name = "car-service", url = "http://localhost:8002/car")
 */
-@FeignClient(name = "car-service")
+@FeignClient(name = "car-service/car")
 
 public interface CarFeignClient {
 
