@@ -3,5 +3,5 @@ spring:
     name: bike-service
   cloud:
     config:
-      enable: true
+      enabled: true
       uri: http://localhost:8081
