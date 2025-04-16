@@ -3,5 +3,5 @@ spring:
     name: user-service
   cloud:
     config:
-      enable: true
+      enabled: true
       uri: http://localhost:8081
