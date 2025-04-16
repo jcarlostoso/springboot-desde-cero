@@ -12,7 +12,7 @@ spring:
   cloud:
     gateway:
       discovery:
-        location:
+        locator:
           enable: true
       routes:
         - id: user-service
