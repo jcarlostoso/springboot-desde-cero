@@ -9,13 +9,13 @@ El proyecto abarca los siguientes temas:
 - **Creación de Microservicios con Spring Boot**
 - **Consultas entre Microservicios (OpenFeign y restTemplate)**
 
-[//]: # (- **Gestión de Configuración Centralizada**)
+- **Gestión de Configuración Centralizada (Config Server)**
 
-[//]: # (- **Registro y Descubrimiento de Servicios**)
+- **Registro y Descubrimiento de Servicios (Eureka server)**
 
-[//]: # (- **Balanceo de Carga y Gateway**)
+- **Balanceo de Carga y Gateway**
 
-[//]: # (- **Tolerancia a Fallos**)
+- **Tolerancia a Fallos (Circuit Breaker /  Resilience4j)**
 
 [//]: # (- **Monitoreo y Observabilidad**)
 
