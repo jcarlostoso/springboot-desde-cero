@@ -4,7 +4,9 @@ import com.jtorresdev.user_service.entity.UserEntity;
 import com.jtorresdev.user_service.model.Bike;
 import com.jtorresdev.user_service.model.Car;
 import com.jtorresdev.user_service.service.UserService;
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -40,7 +42,7 @@ public class UserController {
         UserEntity userNew = userService.save(user);
         return ResponseEntity.ok(userNew);
     }
-    @CircuitBreaker(name = carsCB, fallbackMethod = "fallbackGetCars")
+    @CircuitBreaker(name = "carsCB", fallbackMethod = "fallbackGetCars")
     @GetMapping("/cars/{userId}")
     public ResponseEntity<List<Car>>getCars(@PathVariable("userId") int userId){
         //buscamos al user
@@ -53,7 +55,7 @@ public class UserController {
          List<Car>cars =userService.getCars(userId);
         return ResponseEntity.ok(cars);
     }
-    @CircuitBreaker(name = bikesCB, fallbackMethod = "fallbackGetBikes")
+    @CircuitBreaker(name = "bikesCB", fallbackMethod = "fallbackGetBikes")
     @GetMapping("/bikes/{userId}")
     public ResponseEntity<List<Bike>>getBikes(@PathVariable("userId") int userId){
         //buscamos al user
@@ -67,7 +69,7 @@ public class UserController {
         return ResponseEntity.ok(bikes);
     }
 
-    @CircuitBreaker(name = carsCB, fallbackMethod = "fallbackSaveCars")
+    @CircuitBreaker(name = "carsCB", fallbackMethod = "fallbackSaveCars")
     @PostMapping("/savecar/{userId}")
     public ResponseEntity<Car> saveCar(@PathVariable("userId") int userId, @RequestBody Car car) {
         if(userService.getUserbyId(userId) == null)
@@ -75,7 +77,7 @@ public class UserController {
         Car carNew = userService.saveCar(userId, car);
         return ResponseEntity.ok(car);
     }
-    @CircuitBreaker(name = bikesCB, fallbackMethod = "fallbackSaveBikes")
+    @CircuitBreaker(name = "bikesCB", fallbackMethod = "fallbackSaveBikes")
     @PostMapping("/savebike/{userId}")
     public ResponseEntity<Bike>saveBike(@PathVariable("userId") int userId, @RequestBody Bike bike){
         if(userService.getUserbyId(userId)==null){
@@ -84,7 +86,7 @@ public class UserController {
         Bike bikeNew= userService.saveBike(userId,bike);
         return  ResponseEntity.ok(bike);
     }
-    @CircuitBreaker(name = allCB, fallbackMethod = "fallbackGetAll")
+    @CircuitBreaker(name = "allCB", fallbackMethod = "fallbackGetAll")
     @GetMapping("/getAll/{userId}")
     public ResponseEntity<Map<String,Object>> getAllVehicles(@PathVariable("userId") int userId){
         Map<String,Object>result=userService.getUserAndVehicles(userId);
